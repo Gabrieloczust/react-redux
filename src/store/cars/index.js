@@ -24,11 +24,3 @@ export default function reducer(state = INITIAL_STATE, action) {
             return state;
     }
 }
-
-// Actions
-export const addCar = car => {
-    return {
-        type: 'ADD_CAR',
-        car: car
-    }
-}

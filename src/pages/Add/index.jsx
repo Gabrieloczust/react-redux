@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { addCar } from '../../store/cars';
+import { showMessage, hideMessage } from '../../store/layout/actions';
+import { addCar } from '../../store/cars/actions';
 
 export default function Add() {
 
@@ -15,8 +16,12 @@ export default function Add() {
 
 	function onSubmit(e) {
 		e.preventDefault();
+
 		dispatch(addCar(form));
 		setForm(formInitialValues);
+
+		dispatch(showMessage('Carro cadastrado com sucesso!'));
+		setTimeout(() => dispatch(hideMessage()), 2500);
 	}
 
 	return (
@@ -30,6 +35,7 @@ export default function Add() {
 					value={form.name}
 					className="form-control"
 					placeholder="Nome..."
+					required
 				/>
 			</div>
 			<div className="form-group">
@@ -41,6 +47,7 @@ export default function Add() {
 					value={form.url}
 					className="form-control"
 					placeholder="URL:https://cars"
+					required
 				/>
 			</div>
 			<button type="submit" className="btn btn-primary">
