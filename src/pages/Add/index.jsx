@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { addCar } from '../../store/cars';
 
 export default function Add() {
 
-	const [form, setForm] = useState({ name: '', url: '' });
+	const formInitialValues = { name: '', url: '' };
+	const [form, setForm] = useState(formInitialValues);
 	const dispatch = useDispatch();
 
 	function formChange(e) {
@@ -14,7 +16,7 @@ export default function Add() {
 	function onSubmit(e) {
 		e.preventDefault();
 		dispatch(addCar(form));
-		setForm({ name: '', url: '' });
+		setForm(formInitialValues);
 	}
 
 	return (

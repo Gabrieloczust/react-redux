@@ -14,21 +14,18 @@ const INITIAL_STATE = [
 ];
 
 export default function reducer(state = INITIAL_STATE, action) {
-
     switch (action.type) {
         case 'ADD_CAR':
             return [
                 ...state,
                 action.car
             ];
-            break;
+        default:
+            return state;
     }
-
-    return state;
 }
 
 // Actions
-
 export const addCar = car => {
     return {
         type: 'ADD_CAR',
