@@ -24,11 +24,11 @@ export default function Add() {
 		setForm(formInitialValues);
 
 		dispatch(showMessage('Carro cadastrado com sucesso!'));
-		setTimeout(() => dispatch(hideMessage()), 2500);
+		setTimeout(() => dispatch(hideMessage()), 4000);
 	}
 
 	return (
-		<form className="container mt-5" onSubmit={onSubmit}>
+		<form className="container my-3" onSubmit={onSubmit}>
 			<div className="form-group">
 				<label>Nome</label>
 				<input

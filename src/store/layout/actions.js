@@ -1,16 +1,16 @@
 import Types from './types';
 
-const Creators = {
-    showMessage: (text, color = null) => {
-        const availableColors = ['success', 'primary', 'danger', 'warning'];
-        const availableColor = availableColors.includes(color) ? color : 'success';
+function checkColors(color) {
+    const availableColors = ['success', 'primary', 'danger', 'warning'];
+    return availableColors.includes(color) ? color : 'success';
+}
 
-        return {
-            type: Types.SHOW_MESSAGE,
-            text: text,
-            color: availableColor
-        }
-    },
+const Creators = {
+    showMessage: (text, color = null) => ({
+        type: Types.SHOW_MESSAGE,
+        text: text,
+        color: checkColors(color)
+    }),
     hideMessage: () => ({
         type: Types.HIDE_MESSAGE,
     })
