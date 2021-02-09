@@ -12,3 +12,11 @@
     width: 15px;
     height: 15px;
 }
+
+.toastCustom .close {
+    outline: 0;
+}
+
+.toastCustom .close:hover {
+    color: red;
+}
