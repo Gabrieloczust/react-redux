@@ -28,34 +28,36 @@ export default function Add() {
 	}
 
 	return (
-		<form className="container my-3" onSubmit={onSubmit}>
-			<div className="form-group">
-				<label>Nome</label>
-				<input
-					onChange={formChange}
-					type="text"
-					name="name"
-					value={form.name}
-					className="form-control"
-					placeholder="Nome..."
-					required
-				/>
-			</div>
-			<div className="form-group">
-				<label>URL:</label>
-				<input
-					onChange={formChange}
-					type="text"
-					name="url"
-					value={form.url}
-					className="form-control"
-					placeholder="URL:https://cars"
-					required
-				/>
-			</div>
-			<button type="submit" className="btn btn-primary">
-				Adicionar
+		<div className="container">
+			<form className="my-3" onSubmit={onSubmit}>
+				<div className="form-group">
+					<label>Nome</label>
+					<input
+						onChange={formChange}
+						type="text"
+						name="name"
+						value={form.name}
+						className="form-control"
+						placeholder="Nome..."
+						required
+					/>
+				</div>
+				<div className="form-group">
+					<label>URL:</label>
+					<input
+						onChange={formChange}
+						type="text"
+						name="url"
+						value={form.url}
+						className="form-control"
+						placeholder="URL:https://cars"
+						required
+					/>
+				</div>
+				<button type="submit" className="btn btn-primary">
+					Adicionar
 			</button>
-		</form>
+			</form>
+		</div>
 	);
 }

@@ -1,3 +1,11 @@
 import React from 'react';
 
-export default () => <footer className="l-footer">Shopping-Car &copy; {new Date().getFullYear()}</footer>;
+import './styles.css';
+
+export default () => (
+    <footer className="l-footer">
+        <div className="container">
+            <span className="text-muted">Shopping-Car &copy; {new Date().getFullYear()}</span>
+        </div>
+    </footer>
+);
