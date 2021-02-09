@@ -4,13 +4,13 @@ import './styles.css';
 
 export default function Car({ car }) {
 	return (
-		<div className="col-sm-3 mt-3 mb-3">
-			<div className="card">
+		<div className="col-12 col-sm-6 col-md-4 my-3">
+			<div className="card rounded h-100 overflow-hidden">
 				<img src={car.url} className="card-img-top" alt={car.name} />
-				<div className="card-body">
-					<h5 className="card-title">{car.name}</h5>
+				<div className="card-body d-flex align-items-center justify-content-between">
+					<h5 className="card-title mr-2 mb-0">{car.name}</h5>
 					<button className="btn btn-primary">
-						<i className="fa fa-cart-plus fa-2x" aria-hidden="true" />
+						<i className="fa fa-cart-plus" aria-hidden="true" />
 					</button>
 				</div>
 			</div>
