@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCars } from '../../store/ducks/cars/fetchActions';
 import Car from '../../components/Car';
+import AlertError from '../../components/AlertError';
 
 export default function List() {
-	const { cars, isLoading } = useSelector(state => state.cars);
+	const { cars, isLoading, error } = useSelector(state => state.cars);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -19,6 +20,10 @@ export default function List() {
 				</div>
 			</div>
 		)
+	}
+
+	if (error) {
+		return <AlertError error={error} />
 	}
 
 	return (

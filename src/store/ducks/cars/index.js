@@ -26,7 +26,7 @@ export default createReducer({
         cars: [...action.payload]
     }),
     [hasError.type]: (state, action) => {
-        console.error(action.payload);
+        console.error('Error:', action.payload);
 
         return {
             ...state,

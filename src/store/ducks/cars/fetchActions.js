@@ -7,7 +7,7 @@ export const getAllCars = () => dispatch => {
     api
         .get('/cars')
         .then(response => dispatch(addCars(response.data)))
-        .catch(error => dispatch(hasError(error)));
+        .catch(error => dispatch(hasError(error.message)));
 };
 
 export const addCarFetch = car => dispatch => {
@@ -16,5 +16,5 @@ export const addCarFetch = car => dispatch => {
     api
         .post('/cars', car)
         .then(response => dispatch(addCar(response.data)))
-        .catch(error => dispatch(hasError(error)));
+        .catch(error => dispatch(hasError(error.message)));
 };

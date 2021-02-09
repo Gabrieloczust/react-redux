@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { showMessage, hideMessage } from '../../store/ducks/layout';
 import { addCarFetch } from '../../store/ducks/cars/fetchActions';
+import AlertError from '../../components/AlertError';
 
 export default function Add() {
 
@@ -36,6 +37,10 @@ export default function Add() {
 		e.preventDefault();
 		dispatch(addCarFetch(form));
 		setForm(formInitialValues);
+	}
+
+	if (error) {
+		return <AlertError error={error} />
 	}
 
 	return (
