@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import CreatorsLayout from '../../store/layout/actions';
+import { showMessage, hideMessage } from '../../store/layout';
 import CreatorsCar from '../../store/cars/actions';
 
 export default function Add() {
@@ -17,13 +17,16 @@ export default function Add() {
 	function onSubmit(e) {
 		e.preventDefault();
 
-		const { showMessage, hideMessage } = CreatorsLayout;
 		const { addCar } = CreatorsCar;
 
 		dispatch(addCar(form));
 		setForm(formInitialValues);
 
-		dispatch(showMessage('Carro cadastrado com sucesso!'));
+		dispatch(showMessage({
+			text: 'Carro cadastrado com sucesso!',
+			color: 'success'
+		}));
+
 		setTimeout(() => dispatch(hideMessage()), 4000);
 	}
 

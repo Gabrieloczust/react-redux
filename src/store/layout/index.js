@@ -1,31 +1,34 @@
-import Types from './types';
+import { createAction, createReducer } from '@reduxjs/toolkit';
 
 const INITIAL_STATE = {
     message: {
         show: false,
+        text: '',
         color: 'success'
     }
 }
 
-export default function reducer(state = INITIAL_STATE, action) {
-    switch (action.type) {
-        case Types.SHOW_MESSAGE:
-            return {
-                ...state,
-                message: {
-                    show: true,
-                    text: action.text,
-                    color: action.color
-                }
-            }
-        case Types.HIDE_MESSAGE:
-            return {
-                ...state,
-                message: {
-                    show: false,
-                }
-            }
-        default:
-            return state
-    }
+const checkColors = color => {
+    const availableColors = ['success', 'primary', 'danger', 'warning'];
+    return availableColors.includes(color) ? color : 'success';
 }
+
+export const showMessage = createAction('SHOW_MESSAGE');
+export const hideMessage = createAction('HIDE_MESSAGE');
+
+export default createReducer(INITIAL_STATE, {
+    [showMessage.type]: (state, action) => ({
+        ...state,
+        message: {
+            show: true,
+            text: action.payload.text,
+            color: checkColors(action.payload.color)
+        }
+    }),
+    [hideMessage.type]: state => ({
+        ...state,
+        message: {
+            show: false,
+        }
+    }),
+});
