@@ -1,13 +1,15 @@
+import Types from './types';
+
 const INITIAL_STATE = {
     message: {
         show: false,
         color: 'success'
     }
-};
+}
 
 export default function reducer(state = INITIAL_STATE, action) {
     switch (action.type) {
-        case 'SHOW_MESSAGE':
+        case Types.SHOW_MESSAGE:
             return {
                 ...state,
                 message: {
@@ -16,12 +18,11 @@ export default function reducer(state = INITIAL_STATE, action) {
                     color: action.color
                 }
             }
-        case 'HIDE_MESSAGE':
+        case Types.HIDE_MESSAGE:
             return {
                 ...state,
                 message: {
                     show: false,
-                    text: '',
                 }
             }
         default:

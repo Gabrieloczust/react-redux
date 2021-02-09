@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { showMessage, hideMessage } from '../../store/layout/actions';
-import { addCar } from '../../store/cars/actions';
+import CreatorsLayout from '../../store/layout/actions';
+import CreatorsCar from '../../store/cars/actions';
 
 export default function Add() {
 
@@ -16,6 +16,9 @@ export default function Add() {
 
 	function onSubmit(e) {
 		e.preventDefault();
+
+		const { showMessage, hideMessage } = CreatorsLayout;
+		const { addCar } = CreatorsCar;
 
 		dispatch(addCar(form));
 		setForm(formInitialValues);

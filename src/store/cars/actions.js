@@ -1,6 +1,10 @@
-export const addCar = car => {
-    return {
-        type: 'ADD_CAR',
+import Types from './types';
+
+const Creators = {
+    addCar: car => ({
+        type: Types.ADD_CAR,
         car: car
-    }
+    })
 }
+
+export default Creators;

@@ -1,16 +1,19 @@
-export const showMessage = (text, color = null) => {
-    const availableColors = ['success', 'primary', 'danger', 'warning'];
-    const availableColor = availableColors.includes(color) ? color : 'success';
+import Types from './types';
 
-    return {
-        type: 'SHOW_MESSAGE',
-        text: text,
-        color: availableColor
-    }
+const Creators = {
+    showMessage: (text, color = null) => {
+        const availableColors = ['success', 'primary', 'danger', 'warning'];
+        const availableColor = availableColors.includes(color) ? color : 'success';
+
+        return {
+            type: Types.SHOW_MESSAGE,
+            text: text,
+            color: availableColor
+        }
+    },
+    hideMessage: () => ({
+        type: Types.HIDE_MESSAGE,
+    })
 }
 
-export const hideMessage = () => {
-    return {
-        type: 'HIDE_MESSAGE',
-    }
-}
+export default Creators;
