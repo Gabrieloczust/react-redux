@@ -1,18 +1,20 @@
 import api from '../../../services/api';
-import { addCar, addCars } from './index';
+import { startLoad, startUpdate, hasError, addCar, addCars } from './index';
 
-export const getAllCars = () =>
-    dispatch => {
-        api
-            .get('/cars')
-            .then(response => dispatch(addCars(response.data)))
-            .catch(console.log);
-    }
+export const getAllCars = () => dispatch => {
+    dispatch(startLoad());
 
-export const addCarFetch = car =>
-    dispatch => {
-        api
-            .post('/cars', car)
-            .then(response => dispatch(addCar(response.data)))
-            .catch(console.log);
-    }
+    api
+        .get('/cars')
+        .then(response => dispatch(addCars(response.data)))
+        .catch(error => dispatch(hasError(error)));
+};
+
+export const addCarFetch = car => dispatch => {
+    dispatch(startUpdate());
+
+    api
+        .post('/cars', car)
+        .then(response => dispatch(addCar(response.data)))
+        .catch(error => dispatch(hasError(error)));
+};

@@ -16,12 +16,12 @@ export default function Header() {
 						<li className="nav-item">
 							<NavLink to="/list" activeClassName="active" className="nav-link">
 								Listar
-						</NavLink>
+							</NavLink>
 						</li>
 						<li className="nav-item">
 							<NavLink to="/add" activeClassName="active" className="nav-link">
 								Adicionar
-						</NavLink>
+							</NavLink>
 						</li>
 					</ul>
 				</div>

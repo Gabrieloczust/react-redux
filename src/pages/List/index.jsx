@@ -4,12 +4,22 @@ import { getAllCars } from '../../store/ducks/cars/fetchActions';
 import Car from '../../components/Car';
 
 export default function List() {
-	const cars = useSelector(state => state.cars);
+	const { cars, isLoading } = useSelector(state => state.cars);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getAllCars());
-	}, [dispatch])
+	}, [dispatch]);
+
+	if (isLoading) {
+		return (
+			<div className="h-100 d-flex align-items-center justify-content-center">
+				<div className="spinner-border" role="status">
+					<span className="sr-only">Loading...</span>
+				</div>
+			</div>
+		)
+	}
 
 	return (
 		<div className="container">

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { showMessage, hideMessage } from '../../store/ducks/layout';
 import { addCarFetch } from '../../store/ducks/cars/fetchActions';
 
@@ -8,6 +8,25 @@ export default function Add() {
 	const formInitialValues = { name: '', url: '' };
 	const [form, setForm] = useState(formInitialValues);
 	const dispatch = useDispatch();
+	const { isUpdating, error } = useSelector(state => state.cars);
+
+	useEffect(() => {
+		if (isUpdating) {
+			const message = !error
+				? {
+					text: 'Carro cadastrado com sucesso!',
+					color: 'success'
+				}
+				: {
+					text: 'Infelizmente ocorreu um erro!',
+					color: 'danger'
+				};
+
+			dispatch(showMessage(message));
+			setTimeout(() => dispatch(hideMessage()), 4000);
+		}
+
+	}, [dispatch, isUpdating, error]);
 
 	function formChange(e) {
 		setForm({ ...form, [e.target.name]: e.target.value });
@@ -15,16 +34,8 @@ export default function Add() {
 
 	function onSubmit(e) {
 		e.preventDefault();
-
 		dispatch(addCarFetch(form));
 		setForm(formInitialValues);
-
-		dispatch(showMessage({
-			text: 'Carro cadastrado com sucesso!',
-			color: 'success'
-		}));
-
-		setTimeout(() => dispatch(hideMessage()), 4000);
 	}
 
 	return (
@@ -54,9 +65,9 @@ export default function Add() {
 						required
 					/>
 				</div>
-				<button type="submit" className="btn btn-primary">
+				<button type="submit" className="btn btn-primary" disabled={isUpdating}>
 					Adicionar
-			</button>
+				</button>
 			</form>
 		</div>
 	);
