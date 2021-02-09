@@ -1,9 +1,15 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllCars } from '../../store/ducks/cars/fetchActions';
 import Car from '../../components/Car';
 
 export default function List() {
-	const cars = useSelector(state => state.cars)
+	const cars = useSelector(state => state.cars);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getAllCars());
+	}, [dispatch])
 
 	return (
 		<div className="container">

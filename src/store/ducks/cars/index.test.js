@@ -1,20 +1,16 @@
-import reducer, { addCar } from '../../../store/cars';
+import reducer, { addCar } from './index';
 
 describe('Cars Reducer', () => {
     test('should check the initial state', () => {
-        expect(reducer(undefined, {}).length).toBe(1);
-        expect(reducer(undefined, {})[0]).toHaveProperty('name', 'Ferrari');
-        expect(reducer(undefined, {})[0]).toHaveProperty('url');
+        expect(reducer(undefined, {}).length).toBe(0);
     });
 
     test('should check if a new car has been added', () => {
         expect(reducer([], {
             type: addCar.type,
             payload: {
-                car: {
-                    name: 'Google Car',
-                    url: 'https://www.google.com/logo.png',
-                }
+                name: 'Google Car',
+                url: 'https://www.google.com/logo.png',
             }
         })).toEqual([
             {

@@ -1,0 +1,24 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "name": "Ferrari",
+      "url": "https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    },
+    {
+      "name": "Npm",
+      "url": "https://olhardigital.com.br/wp-content/uploads/2018/07/20180706121025.jpg",
+      "id": 2
+    },
+    {
+      "name": "Npm",
+      "url": "https://olhardigital.com.br/wp-content/uploads/2018/07/20180706121025.jpg",
+      "id": 3
+    },
+    {
+      "name": "Npm",
+      "url": "https://olhardigital.com.br/wp-content/uploads/2018/07/20180706121025.jpg",
+      "id": 4
+    }
+  ]
+}

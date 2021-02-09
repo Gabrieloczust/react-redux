@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { hideMessage } from '../../store/layout';
+import { hideMessage } from '../../store/ducks/layout';
 
 import './styles.css';
 

@@ -1,4 +1,4 @@
-import reducer, { hideMessage, showMessage } from '../../../store/layout';
+import reducer, { hideMessage, showMessage } from './index';
 
 describe('Layout Reducer', () => {
     test('should return the initial state', () => {
