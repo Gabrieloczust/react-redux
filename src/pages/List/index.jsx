@@ -6,8 +6,16 @@ export default function List() {
 	const cars = useSelector(state => state.cars)
 
 	return (
-		<div className="container-fluid">
-			<div className="row">{cars.map((car, index) => <Car key={index} car={car} />)}</div>
+		<div className="container">
+			<div className="row">
+				{cars.map(
+					(car, index) =>
+						<Car
+							key={index}
+							car={car}
+						/>
+				)}
+			</div>
 		</div>
 	);
 }

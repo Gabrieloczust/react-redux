@@ -26,5 +26,10 @@ body,
 
 	grid-template-columns: 1fr;
 	grid-template-rows: 55px 1fr 55px;
-	grid-template-areas: 'lheader' 'lcontent' 'lfooter';
+	grid-template-areas: 'lheader''lcontent''lfooter';
+}
+
+.navbar .container,
+.container-fluid .container {
+	padding: 0;
 }
