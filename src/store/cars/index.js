@@ -1,4 +1,4 @@
-import Types from './types';
+import { createAction, createReducer } from '@reduxjs/toolkit';
 
 const INITIAL_STATE = [
     {
@@ -7,14 +7,11 @@ const INITIAL_STATE = [
     }
 ];
 
-export default function reducer(state = INITIAL_STATE, action) {
-    switch (action.type) {
-        case Types.ADD_CAR:
-            return [
-                ...state,
-                action.car
-            ];
-        default:
-            return state;
-    }
-}
+export const addCar = createAction('ADD_CAR');
+
+export default createReducer(INITIAL_STATE, {
+    [addCar.type]: (state, action) => ([
+        ...state,
+        action.payload.car
+    ])
+});

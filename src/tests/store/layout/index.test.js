@@ -36,7 +36,6 @@ describe('Layout Reducer', () => {
     });
 });
 
-
 describe('Layout Actions', () => {
     describe('Actions Types', () => {
         test('should return the action type equal SHOW_MESSAGE', () => {

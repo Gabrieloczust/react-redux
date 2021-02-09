@@ -1,5 +1,4 @@
-import reducer from '../../../store/cars';
-import Types from '../../../store/cars/types';
+import reducer, { addCar } from '../../../store/cars';
 
 describe('Cars Reducer', () => {
     test('should check the initial state', () => {
@@ -10,10 +9,12 @@ describe('Cars Reducer', () => {
 
     test('should check if a new car has been added', () => {
         expect(reducer([], {
-            type: Types.ADD_CAR,
-            car: {
-                name: 'Google Car',
-                url: 'https://www.google.com/logo.png',
+            type: addCar.type,
+            payload: {
+                car: {
+                    name: 'Google Car',
+                    url: 'https://www.google.com/logo.png',
+                }
             }
         })).toEqual([
             {
@@ -21,5 +22,19 @@ describe('Cars Reducer', () => {
                 url: 'https://www.google.com/logo.png'
             }
         ])
+    });
+});
+
+describe('Cars Actions', () => {
+    describe('Actions Types', () => {
+        test('should return the action type equal ADD_CAR', () => {
+            expect(addCar.type).toEqual('ADD_CAR');
+        });
+    });
+
+    describe('Actions Creators', () => {
+        test('should return the action creator equal addCar { type: ADD_CAR }', () => {
+            expect(addCar()).toEqual({ type: 'ADD_CAR' })
+        });
     });
 });
