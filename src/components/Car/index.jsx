@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 
@@ -9,9 +10,9 @@ export default function Car({ car }) {
 				<img src={car.url} className="card-img-top" alt={car.name} />
 				<div className="card-body d-flex align-items-center justify-content-between">
 					<h5 className="card-title mr-2 mb-0">{car.name}</h5>
-					<button className="btn btn-primary">
+					<Link to="/cart" className="btn btn-primary">
 						<i className="fa fa-cart-plus" aria-hidden="true" />
-					</button>
+					</Link>
 				</div>
 			</div>
 		</div>
